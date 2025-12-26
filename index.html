@@ -3,91 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>墨爾本夏日旅行 🐨</title>
+    <title>墨爾本夏日之旅 🐨</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #F0F7F6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-        .jp-card { background: white; border-radius: 1.5rem; border: 1px solid #E2E8F0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .nav-btn { color: #94A3B8; transition: all 0.3s; }
-        .nav-btn.active { color: #0D9488; transform: translateY(-2px); }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body { background-color: #F7FBFA; font-family: 'Noto Sans TC', sans-serif; color: #2C4E4E; }
+        .day-card { background: white; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E6F0EE; transition: transform 0.2s; }
+        .time-badge { background: #E0F2F1; color: #00897B; padding: 2px 10px; border-radius: 99px; font-weight: bold; font-size: 0.85rem; }
+        .work-badge { background: #FFF4E5; color: #D87C17; padding: 2px 10px; border-radius: 8px; font-size: 0.75rem; border: 1px solid #FFE0B2; }
+        .nav-active { color: #00897B; transform: scale(1.1); font-weight: bold; }
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="pb-24">
+<body class="pb-28">
 
-    <header class="bg-[#E6F4F1] p-8 rounded-b-[3rem] text-center shadow-sm">
-        <h1 class="text-3xl font-extrabold text-teal-800 tracking-tight">Summer Trip</h1>
-        <p class="text-teal-600 font-medium mt-1">2025 墨爾本幸福之旅</p>
+    <header class="bg-[#E0F2F1] p-8 rounded-b-[40px] text-center shadow-sm relative overflow-hidden">
+        <div class="relative z-10">
+            <h1 class="text-3xl font-black text-teal-800 tracking-wider">MELBOURNE 2025</h1>
+            <p class="text-teal-600 mt-2 font-medium">🐨 墨爾本夏日家族旅行手冊</p>
+        </div>
+        <div class="absolute -right-5 -bottom-5 text-8xl opacity-10">☀️</div>
     </header>
 
-    <main class="p-5">
-        <div id="plan" class="tab-content active space-y-4">
-            <h2 class="text-xl font-bold text-gray-700 ml-2">📅 每日行程</h2>
-            <div class="jp-card p-5">
-                <div class="flex justify-between items-center mb-4 border-b pb-2 border-teal-50">
-                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold font-mono">DAY 01</span>
-                    <span class="text-gray-400 text-xs">12/25 (四)</span>
+    <main class="p-4 mt-2">
+        <div id="plan" class="tab-content active space-y-6">
+            
+            <div class="day-card p-5">
+                <div class="flex justify-between border-b pb-2 mb-3 items-center">
+                    <h3 class="font-bold text-teal-700">1/12 - 1/13 出發與抵達</h3>
+                    <span class="text-xs text-gray-400">MON-TUE</span>
                 </div>
-                <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <div class="text-teal-600 font-bold text-sm">10:30</div>
-                        <div class="text-gray-600 text-sm">抵達墨爾本機場 (MEL)，搭乘接駁車前往飯店。</div>
+                <ul class="space-y-3 text-sm">
+                    <li><span class="time-badge">23:45</span> 桃園機場 CI57 直飛 (提前2.5小時到)</li>
+                    <li class="border-l-2 border-teal-100 pl-3 ml-1 text-gray-500 italic">航程約 10 小時</li>
+                    <li><span class="time-badge">12:05</span> 抵達墨爾本，預計 1 小時出境</li>
+                </ul>
+            </div>
+
+            <div class="day-card p-5">
+                <div class="flex justify-between border-b pb-2 mb-3 items-center">
+                    <h3 class="font-bold text-teal-700">1/14 - 1/15 市場漫步</h3>
+                    <span class="text-xs text-gray-400">WED-THU</span>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <p class="font-bold">📍 South Melbourne Market</p>
+                        <p class="text-gray-500 mt-1">午餐在市場解決，下午周邊逛逛。</p>
+                        <div class="work-badge mt-2">先倫工商: 2400 原神</div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-teal-600 font-bold text-sm">15:00</div>
-                        <div>
-                            <p class="text-gray-800 font-bold text-sm">飯店 Check-in</p>
-                            <p class="text-xs text-gray-500 mt-1">📍 Hotel Grand Chancellor Melbourne</p>
-                            <a href="https://maps.app.goo.gl/3wGnyN2G4G4qV2" class="mt-2 inline-flex items-center text-blue-500 text-xs font-bold bg-blue-50 px-3 py-1.5 rounded-full">
-                                <i class="fas fa-location-arrow mr-1"></i> 打開地圖導航
-                            </a>
-                        </div>
+                    <div class="pt-2 border-t border-dashed">
+                        <p class="font-bold">📍 Prahran Market 或 維多利亞市場</p>
+                        <div class="work-badge mt-2">先倫工商: 鳴潮 + 交換 T60</div>
                     </div>
                 </div>
             </div>
+
+            <div class="day-card p-5 bg-blue-50/50 border-blue-100">
+                <div class="flex justify-between border-b pb-2 mb-3 items-center border-blue-200">
+                    <h3 class="font-bold text-blue-700">1/16 - 1/18 露營車之旅 🚐</h3>
+                    <span class="text-xs text-gray-400">FRI-SUN</span>
+                </div>
+                <ul class="space-y-3 text-sm">
+                    <li><span class="time-badge bg-blue-100 text-blue-700">FRI</span> 10:00 拿露營車，海邊晃晃</li>
+                    <li><span class="time-badge bg-blue-100 text-blue-700">SAT</span> 出發企鵝島 (Phillip Island)</li>
+                    <li class="bg-white/80 p-2 rounded text-blue-600 font-medium">🐧 媽媽住露營車 / 其他人住小木屋</li>
+                    <li><span class="time-badge bg-blue-100 text-blue-700">SUN</span> 下午返回，17:00 還車</li>
+                </ul>
+            </div>
+
+            <div class="day-card p-5 border-l-8 border-l-teal-500">
+                <div class="flex justify-between border-b pb-2 mb-3 items-center">
+                    <h3 class="font-bold text-teal-700">1/19 - 1/20 民宿入住與接爸</h3>
+                    <span class="text-xs text-gray-400">MON-TUE</span>
+                </div>
+                <div class="text-sm space-y-3">
+                    <p class="font-bold text-orange-600">🏠 DONCASTER 民宿入住</p>
+                    <p class="text-xs text-gray-500 leading-relaxed">5 Elgar Court 701, Doncaster, VIC 3108</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=5+Elgar+Court+701+Doncaster" class="inline-block bg-teal-500 text-white px-3 py-1 rounded-full text-[10px] shadow-sm">開啟地圖導航</a>
+                    <hr>
+                    <p><span class="time-badge">23:45</span> 換爸爸出發 (CI57)</p>
+                    <p><span class="time-badge">TUE</span> 12:05 爸爸抵達，16:30 拿租車(7人座)</p>
+                </div>
+            </div>
+
+            <div class="day-card p-5 border-l-8 border-l-orange-300">
+                <div class="flex justify-between border-b pb-2 mb-3 items-center">
+                    <h3 class="font-bold text-teal-700">1/21 - 1/23 蒸汽火車與爬樹</h3>
+                    <span class="text-xs text-gray-400">WED-FRI</span>
+                </div>
+                <ul class="space-y-3 text-sm">
+                    <li><span class="time-badge">WED</span> 起司工廠 / <span class="work-badge">2300二重螺旋</span></li>
+                    <li><span class="time-badge">THU</span> 11:00 Puffing Billy 蒸汽火車 🚂</li>
+                    <li class="text-gray-500 italic pl-4">下午出發大洋路 (開車3小時)</li>
+                    <li class="bg-orange-50 p-3 rounded-xl border border-orange-100">
+                        <p class="font-bold text-orange-700 font-bold italic">FRI 重點: Live Wire Park 爬樹 🌳</p>
+                        <p class="text-[10px] mt-1 text-orange-600 leading-relaxed">攜帶：水壺、手套、長褲、運動鞋。手機別放口袋！</p>
+                        <div class="work-badge mt-2">先倫工商: 終末地</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-card p-5">
+                <div class="flex justify-between border-b pb-2 mb-3 items-center">
+                    <h3 class="font-bold text-teal-700">1/24 - 1/28 12門徒與回程</h3>
+                    <span class="text-xs text-gray-400">SAT-WED</span>
+                </div>
+                <ul class="space-y-3 text-sm">
+                    <li><span class="time-badge font-bold">SAT</span> 12門徒打卡 + 🦘 15:15 抱小袋鼠</li>
+                    <li><span class="time-badge">SUN</span> 慢慢開回墨爾本 (停 Geelong)</li>
+                    <li><span class="time-badge">TUE</span> 10:00 退房，23:20 飛機回台</li>
+                    <li><span class="time-badge">WED</span> 12:00 還 7 人座車</li>
+                </ul>
+            </div>
+
         </div>
 
         <div id="info" class="tab-content space-y-4">
-            <h2 class="text-xl font-bold text-gray-700 ml-2">💡 行前小叮嚀</h2>
-            <div class="jp-card p-6 space-y-4">
-                <div class="flex items-start gap-4">
-                    <div class="bg-orange-100 p-3 rounded-2xl"><i class="fas fa-thermometer-half text-orange-500"></i></div>
-                    <div>
-                        <h3 class="font-bold text-gray-800">墨爾本天氣</h3>
-                        <p class="text-sm text-gray-500 mt-1">夏日白天極熱，但早晚會降至 15 度左右。建議帶一件薄長袖外套防止著涼。</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-blue-100 p-3 rounded-2xl"><i class="fas fa-plug text-blue-500"></i></div>
-                    <div>
-                        <h3 class="font-bold text-gray-800">電壓插座</h3>
-                        <p class="text-sm text-gray-500 mt-1">澳洲使用「八字型」插座。飯店通常有 USB，但建議還是帶上轉接頭。</p>
-                    </div>
-                </div>
+            <h2 class="text-xl font-bold text-teal-800 ml-2">🏠 住宿與導航</h2>
+            
+            <div class="day-card p-5">
+                <h4 class="font-bold text-teal-700 mb-2">DONCASTER 民宿 (1/19-1/27)</h4>
+                <p class="text-sm text-gray-600 mb-3">5 Elgar Court 701, Doncaster, VIC 3108</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=5+Elgar+Court+701+Doncaster" class="flex items-center justify-center w-full bg-teal-500 text-white py-3 rounded-xl shadow-lg">
+                    <i class="fas fa-map-marked-alt mr-2"></i> 打開 Google Maps
+                </a>
+            </div>
+
+            <div class="day-card p-5">
+                <h4 class="font-bold text-orange-700 mb-2">阿波羅灣民宿 (1/22-1/25)</h4>
+                <p class="text-sm text-gray-600 mb-3">21 Seeberg Court, Apollo Bay, VIC 3233</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=21+Seeberg+Court+Apollo+Bay" class="flex items-center justify-center w-full bg-orange-400 text-white py-3 rounded-xl shadow-lg">
+                    <i class="fas fa-map-marked-alt mr-2"></i> 打開 Google Maps
+                </a>
+            </div>
+
+            <h2 class="text-xl font-bold text-teal-800 ml-2 mt-6">📝 行前清單</h2>
+            <div class="day-card p-5 space-y-2">
+                <div class="flex items-center gap-3 p-2"><i class="fas fa-passport text-teal-500"></i> <span class="text-sm">護照與 ETA 簽證 (確認有效期)</span></div>
+                <div class="flex items-center gap-3 p-2"><i class="fas fa-plug text-teal-500"></i> <span class="text-sm">八字型轉接頭 (澳洲專用)</span></div>
+                <div class="flex items-center gap-3 p-2"><i class="fas fa-thermometer-half text-teal-500"></i> <span class="text-sm">薄外套 (墨爾本早晚溫差大)</span></div>
+                <div class="flex items-center gap-3 p-2"><i class="fas fa-sun text-teal-500"></i> <span class="text-sm">防曬乳 SPF50+ (澳洲陽光很辣)</span></div>
             </div>
         </div>
+
     </main>
 
-    <nav class="fixed bottom-6 left-5 right-5 h-20 bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white flex justify-around items-center px-4">
-        <button onclick="switchTab('plan', this)" class="nav-btn active flex flex-col items-center">
-            <i class="fas fa-route text-xl"></i>
-            <span class="text-[10px] font-bold mt-1">行程</span>
+    <nav class="fixed bottom-6 left-5 right-5 h-20 bg-white/90 backdrop-blur-md rounded-[30px] shadow-2xl flex justify-around items-center px-4 border border-teal-50">
+        <button onclick="showTab('plan', this)" class="nav-btn nav-active flex flex-col items-center">
+            <i class="fas fa-calendar-alt text-2xl"></i>
+            <span class="text-[10px] mt-1">行程表</span>
         </button>
-        <button onclick="switchTab('info', this)" class="nav-btn flex flex-col items-center">
-            <i class="fas fa-lightbulb text-xl"></i>
-            <span class="text-[10px] font-bold mt-1">須知</span>
+        <button onclick="showTab('info', this)" class="nav-btn flex flex-col items-center">
+            <i class="fas fa-home text-2xl"></i>
+            <span class="text-[10px] mt-1">住宿/須知</span>
         </button>
+        <a href="https://translate.google.com/" target="_blank" class="nav-btn flex flex-col items-center text-gray-400">
+            <i class="fas fa-language text-2xl"></i>
+            <span class="text-[10px] mt-1">翻譯</span>
+        </a>
     </nav>
 
     <script>
-        function switchTab(id, btn) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        function showTab(id, el) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('nav-active'));
+            el.classList.add('nav-active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
