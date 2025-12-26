@@ -3,190 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>墨爾本夏日漫遊 🐨</title>
+    <title>墨爾本夏日旅行 🐨</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --jp-mint: #E6F4F1;
-            --jp-yellow: #FFF9E5;
-            --jp-blue: #E0F2FE;
-            --jp-text: #2D4F4F;
-        }
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: #F7FAF9;
-            color: var(--jp-text);
-            -webkit-tap-highlight-color: transparent;
-        }
-        .safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-        }
-        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* 自定義滾動條 */
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
-        
-        /* 日系按鈕樣式 */
-        .btn-jp {
-            transition: all 0.2s;
-            border-bottom: 4px solid #CBD5E1;
-        }
-        .btn-jp:active {
-            transform: translateY(2px);
-            border-bottom-width: 2px;
-        }
+        body { background-color: #F0F7F6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .jp-card { background: white; border-radius: 1.5rem; border: 1px solid #E2E8F0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .nav-btn { color: #94A3B8; transition: all 0.3s; }
+        .nav-btn.active { color: #0D9488; transform: translateY(-2px); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="pb-24">
 
-    <header class="p-6 bg-[#E6F4F1] rounded-b-[40px] shadow-sm mb-4">
-        <div class="flex justify-between items-center">
-            <div>
-                <h1 class="text-2xl font-bold text-teal-800">MELBOURNE</h1>
-                <p class="text-sm text-teal-600 opacity-80">2025 夏日家族旅行</p>
-            </div>
-            <div class="bg-white p-3 rounded-full shadow-inner text-2xl">🐨</div>
-        </div>
+    <header class="bg-[#E6F4F1] p-8 rounded-b-[3rem] text-center shadow-sm">
+        <h1 class="text-3xl font-extrabold text-teal-800 tracking-tight">Summer Trip</h1>
+        <p class="text-teal-600 font-medium mt-1">2025 墨爾本幸福之旅</p>
     </header>
 
-    <main class="px-4">
-        <div id="plan" class="tab-content active">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-calendar-day mr-2 text-teal-500"></i> 每日行程</h2>
-            
-            <div class="glass-card p-5 mb-4 shadow-sm">
-                <div class="flex items-center justify-between border-b border-dashed border-teal-200 pb-2 mb-3">
-                    <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-xs font-bold">DAY 1 - 市區探索</span>
-                    <span class="text-xs text-gray-400">12/25 (四)</span>
+    <main class="p-5">
+        <div id="plan" class="tab-content active space-y-4">
+            <h2 class="text-xl font-bold text-gray-700 ml-2">📅 每日行程</h2>
+            <div class="jp-card p-5">
+                <div class="flex justify-between items-center mb-4 border-b pb-2 border-teal-50">
+                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold font-mono">DAY 01</span>
+                    <span class="text-gray-400 text-xs">12/25 (四)</span>
                 </div>
-                <ul class="space-y-4">
-                    <li class="flex gap-3">
-                        <div class="text-teal-500 font-bold w-12 text-sm">10:00</div>
-                        <div class="text-sm">抵達墨爾本機場 (MEL)，搭乘 SkyBus 前往市區飯店放行李。</div>
-                    </li>
-                    <li class="flex gap-3">
-                        <div class="text-teal-500 font-bold w-12 text-sm">13:00</div>
-                        <div class="flex-1">
-                            <p class="text-sm font-bold">Flinders Street Station & 聖保羅大教堂</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Flinders+Street+Station" class="mt-2 inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-xs">
-                                <i class="fas fa-map-marker-alt"></i> 查看地圖
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="text-teal-600 font-bold text-sm">10:30</div>
+                        <div class="text-gray-600 text-sm">抵達墨爾本機場 (MEL)，搭乘接駁車前往飯店。</div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-teal-600 font-bold text-sm">15:00</div>
+                        <div>
+                            <p class="text-gray-800 font-bold text-sm">飯店 Check-in</p>
+                            <p class="text-xs text-gray-500 mt-1">📍 Hotel Grand Chancellor Melbourne</p>
+                            <a href="https://maps.app.goo.gl/3wGnyN2G4G4qV2" class="mt-2 inline-flex items-center text-blue-500 text-xs font-bold bg-blue-50 px-3 py-1.5 rounded-full">
+                                <i class="fas fa-location-arrow mr-1"></i> 打開地圖導航
                             </a>
                         </div>
-                    </li>
-                    <li class="flex gap-3">
-                        <div class="text-teal-500 font-bold w-12 text-sm text-red-500">18:00</div>
-                        <div class="bg-red-50 p-2 rounded-lg flex-1 border border-red-100">
-                            <p class="text-sm font-bold text-red-700">亞拉河畔晚餐 (已預約)</p>
-                            <p class="text-xs text-red-600">請務必準時集合，河邊風大帶件薄外套。</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="glass-card p-5 mb-4 shadow-sm opacity-80">
-                <div class="flex items-center justify-between border-b border-dashed border-teal-200 pb-2 mb-3">
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">DAY 2 - 自然生態</span>
-                    <span class="text-xs text-gray-400">12/26 (五)</span>
-                </div>
-                <p class="text-sm">普芬比利蒸汽火車 🚂 -> 菲利普島看企鵝歸巢 🐧</p>
-                <div class="mt-3 flex gap-2">
-                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">#森林芬多精</span>
-                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">#企鵝超可愛</span>
-                </div>
-            </div>
-        </div>
-
-        <div id="guide" class="tab-content">
-            <h2 class="text-xl font-bold mb-4 text-teal-800">📖 景點冷知識</h2>
-            <div class="space-y-4">
-                <div class="glass-card overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1545044846-351ba102b6d5?auto=format&fit=crop&w=400" class="w-full h-32 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-teal-700">霍西爾巷 (Hosier Lane)</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mt-2">
-                            這裡是墨爾本最著名的塗鴉街。墨爾本政府並不視其為破壞，而是藝術。牆上的畫作每天都在更新，所以你看到的每一眼都是「期限限定」！
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="wallet" class="tab-content">
-            <div class="glass-card p-5 mb-4 bg-gradient-to-br from-yellow-50 to-white">
-                <h3 class="font-bold mb-2">💰 匯率換算 (AUD ➔ TWD)</h3>
-                <div class="flex items-center gap-4">
-                    <input type="number" id="audInput" placeholder="輸入澳幣" class="w-full p-3 rounded-xl border-none shadow-inner" oninput="convertCurrency()">
-                    <span class="text-xl">➔</span>
-                    <div id="twdResult" class="w-full p-3 bg-white rounded-xl shadow-inner font-bold text-teal-600">約 NT$ 0</div>
-                </div>
-                <p class="text-[10px] text-gray-400 mt-2">目前匯率設定：1 AUD = 21 TWD</p>
-            </div>
-
-            <div class="glass-card p-5">
-                <h3 class="font-bold mb-3 text-sm flex justify-between">
-                    <span>📝 旅行記帳</span>
-                    <button onclick="clearExpenses()" class="text-red-400 text-xs">清除全部</button>
-                </h3>
-                <div class="space-y-2 mb-4">
-                    <input type="text" id="expName" placeholder="品項 (如：晚餐)" class="w-full p-2 text-sm border-b border-gray-100 focus:outline-none">
-                    <input type="number" id="expAmt" placeholder="澳幣金額" class="w-full p-2 text-sm border-b border-gray-100 focus:outline-none">
-                    <div class="flex items-center gap-2 mt-2">
-                        <label class="flex-1 bg-gray-100 p-2 rounded-lg text-center text-xs cursor-pointer">
-                            <i class="fas fa-camera"></i> 拍收據
-                            <input type="file" accept="image/*" id="expImg" class="hidden" onchange="handleImage(this)">
-                        </label>
-                        <button onclick="addExpense()" class="flex-1 bg-teal-500 text-white p-2 rounded-lg text-xs btn-jp font-bold">記錄一筆</button>
+        <div id="info" class="tab-content space-y-4">
+            <h2 class="text-xl font-bold text-gray-700 ml-2">💡 行前小叮嚀</h2>
+            <div class="jp-card p-6 space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="bg-orange-100 p-3 rounded-2xl"><i class="fas fa-thermometer-half text-orange-500"></i></div>
+                    <div>
+                        <h3 class="font-bold text-gray-800">墨爾本天氣</h3>
+                        <p class="text-sm text-gray-500 mt-1">夏日白天極熱，但早晚會降至 15 度左右。建議帶一件薄長袖外套防止著涼。</p>
                     </div>
                 </div>
-                <div id="expenseList" class="space-y-3">
+                <div class="flex items-start gap-4">
+                    <div class="bg-blue-100 p-3 rounded-2xl"><i class="fas fa-plug text-blue-500"></i></div>
+                    <div>
+                        <h3 class="font-bold text-gray-800">電壓插座</h3>
+                        <p class="text-sm text-gray-500 mt-1">澳洲使用「八字型」插座。飯店通常有 USB，但建議還是帶上轉接頭。</p>
                     </div>
-            </div>
-        </div>
-
-        <div id="lists" class="tab-content">
-            <div class="glass-card p-5 mb-4">
-                <h3 class="font-bold mb-3"><i class="fas fa-check-square mr-2 text-green-500"></i> 行前必備</h3>
-                <div id="checkList" class="space-y-3">
-                    </div>
-            </div>
-            <div class="glass-card p-5">
-                <h3 class="font-bold mb-3"><i class="fas fa-sticky-note mr-2 text-yellow-500"></i> 備忘錄</h3>
-                <textarea id="memoInput" class="w-full h-32 p-3 bg-yellow-50 rounded-xl text-sm border-none focus:ring-0" placeholder="點擊輸入備忘內容，會自動儲存..." oninput="saveMemo()"></textarea>
-                <div id="memoLinks" class="mt-2 space-y-1"></div>
-            </div>
-        </div>
-
-        <div id="info" class="tab-content">
-            <div class="grid grid-cols-2 gap-3 mb-4">
-                <a href="https://www.google.com/search?q=Melbourne+weather" target="_blank" class="glass-card p-4 text-center">
-                    <i class="fas fa-sun text-orange-400 text-2xl mb-1"></i>
-                    <p class="text-xs font-bold">今日天氣</p>
-                </a>
-                <a href="https://translate.google.com/?sl=en&tl=zh-TW" target="_blank" class="glass-card p-4 text-center">
-                    <i class="fas fa-language text-blue-400 text-2xl mb-1"></i>
-                    <p class="text-xs font-bold">Google 翻譯</p>
-                </a>
-            </div>
-            <div class="glass-card p-5 bg-red-50">
-                <h3 class="font-bold text-red-800 mb-2">🚨 緊急聯繫</h3>
-                <p class="text-sm mb-1">澳洲求救電話：000</p>
-                <p class="text-sm">駐墨爾本辦事處：+61-3-9650-5151</p>
-            </div>
-            <div class="mt-4 p-4 text-xs text-gray-400 leading-relaxed">
-                * 澳洲入境禁帶肉類、蔬果、蛋奶製品。<br>
-                * 過馬路請先看右手邊（與台灣相反）。<br>
-                * 下午 5 點後商場陸續關門，記得提早購物。
+                </div>
             </div>
         </div>
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 flex justify-around p-2 pb-6 safe-area-bottom shadow-lg z-50">
-        <button onclick="showTab('plan', this)" class="flex fl
+    <nav class="fixed bottom-6 left-5 right-5 h-20 bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white flex justify-around items-center px-4">
+        <button onclick="switchTab('plan', this)" class="nav-btn active flex flex-col items-center">
+            <i class="fas fa-route text-xl"></i>
+            <span class="text-[10px] font-bold mt-1">行程</span>
+        </button>
+        <button onclick="switchTab('info', this)" class="nav-btn flex flex-col items-center">
+            <i class="fas fa-lightbulb text-xl"></i>
+            <span class="text-[10px] font-bold mt-1">須知</span>
+        </button>
+    </nav>
+
+    <script>
+        function switchTab(id, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
