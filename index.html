@@ -11,169 +11,125 @@
         body { background-color: #F8FBFA; font-family: 'Noto Sans TC', sans-serif; color: #2C4E4E; }
         .day-card { background: white; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E6F0EE; position: relative; overflow: hidden; margin-bottom: 16px; }
         .day-header { padding: 10px 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
-        .time-badge { background: #F1F5F9; color: #475569; padding: 2px 8px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; margin-right: 8px; }
-        .work-badge { background: #FFF7ED; color: #C2410C; padding: 2px 10px; border-radius: 8px; font-size: 0.75rem; border: 1px solid #FFEDD5; display: inline-block; }
-        .location-btn { background: #F0FDFA; color: #0F766E; border: 1px solid #CCFBF1; padding: 10px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; margin-top: 10px; display: inline-flex; align-items: center; width: 100%; justify-content: center; }
-        .weather-btn { background: #FFFFFF; border: 1px solid #E2E8F0; padding: 8px; border-radius: 12px; font-size: 0.75rem; flex: 1; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        .info-box { background: #FFF9F0; border: 1px solid #FFEBCD; padding: 10px; border-radius: 12px; font-size: 0.8rem; margin-top: 8px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* 勾選單樣式 */
+        .check-item { display: flex; align-items: flex-start; padding: 12px; border-bottom: 1px solid #F8FAFC; cursor: pointer; transition: 0.2s; }
+        .check-item input { width: 18px; height: 18px; margin-right: 12px; margin-top: 3px; accent-color: #0D9488; }
+        .check-item.done span { text-decoration: line-through; color: #94A3B8; }
+        .nav-btn.active { color: #0D9488; font-weight: bold; }
+        .warning-box { background: #FFF1F2; border-left: 4px solid #F43F5E; padding: 10px; font-size: 0.75rem; color: #9F1239; margin-bottom: 10px; }
     </style>
 </head>
 <body class="pb-28">
 
     <header class="bg-gradient-to-r from-[#E6F4F1] to-[#E0F2FE] p-6 rounded-b-[40px] text-center shadow-sm">
-        <h1 class="text-2xl font-black text-teal-800 tracking-tight">AUSTRALIA 2025</h1>
-        <p class="text-teal-600 mt-1 text-sm font-medium">澳洲夏日家族旅行手冊 🐨</p>
-        
-        <div class="flex gap-2 mt-4">
-            <a href="https://www.google.com/search?q=melbourne+weather" target="_blank" class="weather-btn">
-                <i class="fas fa-cloud-sun text-blue-400 mr-1"></i> 墨爾本天氣
-            </a>
-            <a href="https://www.google.com/search?q=sydney+weather" target="_blank" class="weather-btn">
-                <i class="fas fa-sun text-orange-400 mr-1"></i> 雪梨天氣
-            </a>
+        <h1 class="text-2xl font-black text-teal-800 tracking-tight italic">Summer 2025</h1>
+        <div class="flex gap-2 mt-4 text-[10px]">
+            <a href="https://www.google.com/search?q=melbourne+weather" target="_blank" class="bg-white/80 py-2 rounded-xl flex-1 border border-teal-100 font-bold">☁️ 墨爾本天氣</a>
+            <a href="https://www.google.com/search?q=sydney+weather" target="_blank" class="bg-white/80 py-2 rounded-xl flex-1 border border-teal-100 font-bold">☀️ 雪梨天氣</a>
         </div>
     </header>
 
-    <main class="p-4 space-y-4">
-
-        <div class="day-card">
-            <div class="day-header bg-teal-50 text-teal-800"><span>1月12日 星期一</span><span class="text-[10px] opacity-50">桃園出發</span></div>
-            <div class="p-4 text-sm"><span class="time-badge">23:45</span> 華航 CI57 直飛 (建議 21:15 抵達機場)</div>
+    <main class="p-4">
+        <div id="plan-tab" class="tab-content active space-y-4">
+            <div class="text-xs text-gray-400 font-bold mb-2 ml-2 italic">▼ 點擊下方按鈕切換清單</div>
+            <div class="day-card"><div class="day-header bg-teal-50 text-teal-800"><span>1/12 - 1/20 前段精選</span></div><div class="p-4 text-sm space-y-2"><p>1/12 桃園出發 ✈️</p><p>1/19 入住 Doncaster 民宿 🏠</p></div></div>
+            <div class="day-card border-l-4 border-l-blue-400"><div class="day-header bg-blue-50 text-blue-800"><span>1/22 蒸汽火車</span></div><div class="p-4 text-sm">11:00 蒸汽火車之旅 🚂</div></div>
+            <div class="day-card border-l-4 border-l-red-400"><div class="day-header bg-red-50 text-red-800"><span>1/23 爬樹挑戰</span></div><div class="p-4 text-sm font-bold">11:00 Live Wire Park 🌳</div></div>
+            <div class="day-card border-l-4 border-l-teal-400"><div class="day-header bg-teal-50 text-teal-800"><span>1/24 抱小袋鼠</span></div><div class="p-4 text-sm">15:15 Warrnambool 動物園 🦘</div></div>
+            <div class="day-card bg-gray-50 text-gray-400"><div class="day-header"><span>1/25 - 2/5 延伸旅程</span></div><div class="p-4 text-sm italic">包含慢慢回程與雪梨計畫。</div></div>
         </div>
 
-        <div class="day-card">
-            <div class="day-header bg-teal-50 text-teal-800"><span>1月13日 星期二</span><span class="text-[10px] opacity-50">抵達墨爾本</span></div>
-            <div class="p-4 text-sm"><span class="time-badge">12:05</span> 飛機降落，預計 1 小時出境</div>
-        </div>
+        <div id="check-tab" class="tab-content space-y-4">
+            <h2 class="text-xl font-bold text-teal-800 px-2 flex items-center"><i class="fas fa-suitcase-rolling mr-2 text-teal-500"></i>打包檢查表</h2>
+            
+            <div class="day-card">
+                <div class="day-header bg-teal-600 text-white">必帶文件與基本品</div>
+                <div class="p-2">
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>護照 (帶兩吋照片備用)</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>手機、錢包、信用卡</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>澳洲轉接頭 (八字型)</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>牙刷、泳衣</span></label>
+                </div>
+            </div>
 
-        <div class="day-card border-l-4 border-l-yellow-400">
-            <div class="day-header bg-yellow-50 text-yellow-800"><span>1月14日 星期三</span></div>
-            <div class="p-4 text-sm space-y-2">
-                <p><span class="time-badge">10:30</span> South Melbourne Market</p>
-                <p class="text-gray-500">市場吃午餐、周邊逛逛。</p>
-                <div class="work-badge">先倫工商: 2400 原神</div>
+            <div class="day-card">
+                <div class="day-header bg-blue-500 text-white">常用與慢性藥品</div>
+                <div class="p-3">
+                    <div class="warning-box">
+                        <strong>⚠️ 重要提醒：</strong><br>
+                        慢性病處方箋請帶足份量，必附英文診斷證明。若藥含「麻黃素」或「嗎啡」成分務必申報！
+                    </div>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>感冒藥、止痛藥 (普拿疼)</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>腸胃藥、止瀉藥、暈車藥</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>痠痛貼布 (走很多路必備)</span></label>
+                </div>
+            </div>
+
+            <div class="day-card border-l-4 border-l-orange-400">
+                <div class="day-header bg-orange-50 text-orange-800">穿著指南 (13~35度)</div>
+                <div class="p-3">
+                    <p class="text-[10px] text-orange-600 mb-2 font-bold italic">💡 洋蔥式穿法：早晚涼、中午熱</p>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>厚外套、薄外套各一</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>短袖為主、長袖備用</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>短褲、長褲 (正式+休閒)</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>布鞋、休閒鞋</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>涼鞋 或 拖鞋</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>遮陽帽、保暖帽、墨鏡</span></label>
+                </div>
+            </div>
+
+            <div class="day-card border-l-4 border-l-red-500">
+                <div class="day-header bg-red-50 text-red-800">爬樹特備 (1/23)</div>
+                <div class="p-2">
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>攀爬用手套</span></label>
+                    <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>舒適攀爬長褲 (非短褲)</span></label>
+                </div>
             </div>
         </div>
-
-        <div class="day-card border-l-4 border-l-yellow-400">
-            <div class="day-header bg-yellow-50 text-yellow-800"><span>1月15日 星期四</span></div>
-            <div class="p-4 text-sm space-y-2">
-                <p>📍 Prahran Market 或 維多利亞市場</p>
-                <div class="work-badge">先倫工商: 鳴潮 + 交換 T60</div>
-            </div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-blue-400">
-            <div class="day-header bg-blue-50 text-blue-800"><span>1月16日 星期五</span><span class="text-[10px] opacity-50">拿露營車</span></div>
-            <div class="p-4 text-sm"><span class="time-badge">10:00</span> 領取露營車，海邊周邊晃晃</div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-blue-400">
-            <div class="day-header bg-blue-50 text-blue-800"><span>1月17日 星期六</span><span class="text-[10px] opacity-50">企鵝島</span></div>
-            <div class="p-4 text-sm space-y-2">
-                <p><span class="time-badge">09:30</span> 出發企鵝島 🐧</p>
-                <p class="font-bold text-teal-700">住宿：媽媽住露營車/其他人住小木屋</p>
-            </div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-blue-400">
-            <div class="day-header bg-blue-50 text-blue-800"><span>1月18日 星期日</span></div>
-            <div class="p-4 text-sm space-y-2">
-                <p>島上享受早午餐</p>
-                <p><span class="time-badge">17:00</span> 墨爾本還露營車</p>
-            </div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-teal-500">
-            <div class="day-header bg-teal-50 text-teal-800"><span>1月19日 星期一</span></div>
-            <div class="p-4 text-sm space-y-3">
-                <p><span class="time-badge">15:00</span> 入住 DONCASTER 民宿</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=5+Elgar+Court+701+Doncaster+VIC+3108" class="location-btn"><i class="fas fa-home mr-2"></i> 導航至 DONCASTER 民宿</a>
-                <hr>
-                <p><span class="time-badge">23:45</span> 爸爸機 CI57 直飛 (提前2.5小時到)</p>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-header bg-gray-100 text-gray-800"><span>1月20日 星期二</span></div>
-            <div class="p-4 text-sm space-y-2">
-                <p><span class="time-badge">12:05</span> 爸爸抵達</p>
-                <p><span class="time-badge">16:30</span> 領取租車 (7人座)</p>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-header bg-teal-50 text-teal-800"><span>1月21日 星期三</span></div>
-            <div class="p-4 text-sm">起司工廠參觀 🧀 <div class="work-badge ml-2">先倫: 二重螺旋</div></div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-blue-400">
-            <div class="day-header bg-blue-50 text-blue-800"><span>1月22日 星期四</span></div>
-            <div class="p-4 text-sm space-y-3">
-                <p><span class="time-badge">11:00</span> 蒸汽火車 Puffing Billy 🚂</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=21+Seeberg+Court+Apollo+Bay+VIC+3233" class="location-btn text-blue-700 bg-blue-50 border-blue-100"><i class="fas fa-home mr-2"></i> 前往阿波羅灣民宿</a>
-                <div class="work-badge">先倫: 終末地</div>
-            </div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-red-400">
-            <div class="day-header bg-red-50 text-red-800"><span>1月23日 星期五</span></div>
-            <div class="p-4 text-sm space-y-3">
-                <p><span class="time-badge bg-red-100">11:00</span> Live Wire Park 爬樹挑戰 🌳</p>
-                <div class="info-box text-red-800"><strong>🎒 必備：</strong> 水壺、手套、長褲、運動鞋。</div>
-                <a href="https://www.google.com/maps/search/?api=1&query=180+Erskine+Falls+Rd+Lorne+VIC+3232" class="location-btn bg-red-50 border-red-100 text-red-700"><i class="fas fa-location-arrow mr-2"></i> 導航至爬樹公園</a>
-            </div>
-        </div>
-
-        <div class="day-card border-l-4 border-l-teal-400">
-            <div class="day-header bg-teal-50 text-teal-800"><span>1月24日 星期六</span></div>
-            <div class="p-4 text-sm space-y-3">
-                <p>12 門徒打卡 📸</p>
-                <p><span class="time-badge">15:15</span> 抱小袋鼠活動 🦘</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Warrnambool+Wildlife+Encounters" class="location-btn"><i class="fas fa-paw mr-2"></i> 導航至抱袋鼠動物園</a>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-header bg-gray-50"><span>1月25日 星期日</span></div>
-            <div class="p-4 text-sm">慢慢開回墨爾本 (經 Geelong)</div>
-        </div>
-        <div class="day-card">
-            <div class="day-header bg-gray-50"><span>1月26日 星期一</span></div>
-            <div class="p-4 text-sm text-gray-400 italic">暫無計畫</div>
-        </div>
-        <div class="day-card">
-            <div class="day-header bg-red-50 text-red-800"><span>1月27日 星期二</span></div>
-            <div class="p-4 text-sm"><span class="time-badge">23:20</span> 沁沁、先倫返台 ✈️</div>
-        </div>
-
-        <div class="day-card border-dashed border-2 border-yellow-200">
-            <div class="day-header bg-yellow-50 text-yellow-800"><span>1月28日 星期三</span></div>
-            <div class="p-4 text-sm">12:00 還車。下午開始自由行程。</div>
-        </div>
-
-        <div class="day-card bg-purple-50/30 border-purple-100">
-            <div class="day-header bg-purple-100 text-purple-800"><span>1月29日 - 2月4日</span><span class="text-[10px] opacity-60">雪梨計畫</span></div>
-            <div class="p-4 text-sm text-purple-700">期間預計前往雪梨觀光，詳細內容待確認。</div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-header bg-gray-100"><span>2月5日 星期三</span></div>
-            <div class="p-4 text-sm text-center text-gray-500">旅程圓滿結束 🏠</div>
-        </div>
-
     </main>
 
-    <nav class="fixed bottom-6 left-6 right-6 h-16 bg-white/95 shadow-2xl rounded-full border border-teal-50 flex justify-around items-center px-6">
-        <div class="text-teal-600 flex flex-col items-center">
+    <nav class="fixed bottom-6 left-6 right-6 h-16 bg-white shadow-2xl rounded-full border border-teal-50 flex justify-around items-center px-6">
+        <button id="plan-btn" onclick="switchTab('plan-tab', this)" class="nav-btn active flex flex-col items-center">
             <i class="fas fa-calendar-alt text-xl"></i>
-            <span class="text-[10px] mt-1 font-bold">行程表</span>
-        </div>
+            <span class="text-[10px] mt-1">行程表</span>
+        </button>
+        <button id="check-btn" onclick="switchTab('check-tab', this)" class="nav-btn text-gray-400 flex flex-col items-center">
+            <i class="fas fa-tasks text-xl"></i>
+            <span class="text-[10px] mt-1">行李清單</span>
+        </button>
         <a href="https://translate.google.com/" target="_blank" class="text-gray-400 flex flex-col items-center">
             <i class="fas fa-language text-xl"></i>
-            <span class="text-[10px] mt-1 font-bold">翻譯</span>
+            <span class="text-[10px] mt-1">翻譯</span>
         </a>
     </nav>
 
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('active', 'text-teal-600');
+                b.classList.add('text-gray-400');
+            });
+            btn.classList.add('active');
+            btn.classList.remove('text-gray-400');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function toggleCheck(el) {
+            const checkbox = el.querySelector('input');
+            // 注意：點擊 label 會觸發兩次事件，這段 script 处理 checkbox 的同步
+            if (event.target.tagName !== 'INPUT') {
+                checkbox.checked = !checkbox.checked;
+            }
+            if (checkbox.checked) {
+                el.classList.add('done');
+            } else {
+                el.classList.remove('done');
+            }
+        }
+    </script>
 </body>
 </html>
